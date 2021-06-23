@@ -1,0 +1,90 @@
+form
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+form > input 
+{
+    margin:10px;
+    padding:8px;
+    width:400px;
+    border:1px solid lightgray;
+    outline:none;
+    background-color:#dcdde1;
+    border-radius:7px;
+ }
+
+.btn
+{
+     margin:10px;
+    padding:10px;
+    width:400px;
+     border:0;
+    outline:none;
+    background:#9c88ff;
+    color:white;
+ }
+
+.form_wrapper
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    flex-wrap:wrap;
+}
+
+.main_header
+{
+    background:url("https://i0.1616.ro/media/2/2621/33240/19830934/1/anime-demon-slayer-kimetsu-no-yaiba.png");
+    height:50vh;
+    width:100vw;
+    background-position:center;
+    background-repeat:none;
+    background-size:cover;
+    margin-top:-25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+ 
+}
+.text_container
+{
+    background-color:#353b48;
+    padding:3px;
+    width:400px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+@media only screen and (max-width: 600px) {
+ form 
+ {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    margin-top:10px;
+ }
+form > input , form > .btn 
+{
+    width:200px;
+}
+.main_header
+{
+ margin-top:100px;
+ width:100vw;
+}
+
+.text_container
+{
+    display:none;
+}
+
+}
