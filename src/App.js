@@ -5,7 +5,7 @@
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import CreatePost from './components/CreatePost/CreatePost';
-
+import Post from './components/Post/Post';
  import FadeIn from 'react-fade-in';
  import {
   BrowserRouter as Router,
@@ -41,6 +41,10 @@ import CreatePost from './components/CreatePost/CreatePost';
             </Route>
           
           <Route path="/createPost">
+             <CreatePost/> 
+            </Route>
+
+             <Route path="/posts/id">
              <CreatePost/> 
             </Route>
         </Switch>

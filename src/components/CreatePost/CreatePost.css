@@ -1,4 +1,94 @@
-.post__create
-{
-    margin-top:20rem;
+.post__create {
+  margin-top: 0px;
+}
+
+textarea {
+  border-radius: 20px;
+  outline: none;
+  width: 430px;
+  height: 300px;
+}
+.file__input {
+  background: white;
+}
+.post__btn {
+  padding: 1rem;
+  border: 0;
+  width: 400px;
+  margin-top: 20px;
+  background: #9c88ff;
+  color: white;
+  border-radius: 25px;
+}
+.post__image {
+  object-fit: cover;
+  background: url("https://api.time.com/wp-content/uploads/2020/12/best-anime-series-on-netflix-2.jpg");
+  width: 100vw;
+  background-repeat: none;
+  background-size: cover;
+  height: 30vh;
+  background-position: center;
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  width: 400px;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+}
+select,
+select > option {
+  width: 400px;
+  border: 1px solid lightgray;
+  padding: 3px;
+  outline: none;
+  padding: 0.65rem;
+}
+@media only screen and (max-width: 600px) {
+  .post__create {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  textarea {
+    width: 60vw;
+    height: 20vh;
+  }
+  form > input,
+  select,
+  .post__btn {
+    width: 60vw;
+  }
+  .post__image {
+    margin-top: 100px;
+    width: 100vw;
+  }
+
+  .text_container {
+    display: none;
+  }
+}
+
+form > .custom-file-upload {
+  width: 34px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+form > .custom-file-upload:hover {
+  background-color: #9c88ff;
+  color: white;
 }

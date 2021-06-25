@@ -2,7 +2,7 @@ import React from 'react'
 import CategoriesCSS from './Categories.module.css';
 function Categories() {
     return (
-        <div className="categories">
+        <div className="categories" style={{margin:'12rem'}}>
             <h1>Categories</h1>
             <button className={CategoriesCSS.category_button}>Cooking</button>
             <button className={CategoriesCSS.category_button}>LifeStyle</button>

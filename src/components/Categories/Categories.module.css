@@ -1,19 +1,17 @@
-.category_button 
- {
-     border:none;
-     padding:1.3rem;
-     border-radius:1.5rem;
-     margin:3px;
- }
+.category_button {
+  border: none;
+  padding: 1.3rem;
+  border-radius: 1.5rem;
+  margin: 3px;
+}
 
- .category_button:hover 
- {
-     background-color: rgb(7, 6, 6);
-     color:white;
-     cursor: pointer;
- }
+.category_button:hover {
+  background-color: rgb(7, 6, 6);
+  color: white;
+  cursor: pointer;
+}
 
- .categories{
-     z-index:800;
-     position: sticky;
- }
+.categories {
+  z-index: 1500;
+  margin-top: 22rem;
+}
