@@ -5,4 +5,4 @@ At the current moment this blog has the following features :
 - Register
 - Display Posts from DB 
 
-![yaiba](https://user-images.githubusercontent.com/61979889/123173694-a773f500-d487-11eb-99f9-89fad44b39d1.PNG)
+![image](https://user-images.githubusercontent.com/61979889/123491644-e2109580-d61f-11eb-9cd3-08fc9b9031e1.png)
