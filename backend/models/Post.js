@@ -28,6 +28,11 @@ let postSchema = new Schema(
             type: Array,
             default: []
         },
+        // categories:
+        // {
+        //     type:Array,
+        //     default:[]
+        // },
         postPicture:
         {
             type: String

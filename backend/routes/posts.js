@@ -80,9 +80,14 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.put('/like/:id',async(req,res)=>{
-    let post = await Post.findById(req.params.id);
-})
+// router.put('/like/:id',async(req,res)=>{
+//     let post = await Post.findById(req.params.id);
+//     try {
+//        //   await post.updateOne({$push:userId})
+//     } catch (error) {
+        
+//     }
+// })
 
 
 
