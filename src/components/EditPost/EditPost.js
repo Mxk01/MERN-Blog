@@ -3,11 +3,13 @@ import './EditPost.css';
 import axios from 'axios';
 import {useHistory,useParams} from 'react-router-dom';
 function EditPost() {
-    let history = useHistory();
+     let history = useHistory();
     let [file,setFile ] = useState(null);
-    let [title,setTitle] = useState('');
-    let [content,setContent] = useState('');
+    let [title,setTitle] = useState(localStorage.getItem('title') || '');
+    let [content,setContent] = useState(localStorage.getItem('content') || '');
     let {id} = useParams();
+    
+  
     /*
     The FormData interface provides a way to easily construct a set of key/value pairs 
     representing form fields and their values, which can then be easily sent using the 
@@ -67,8 +69,10 @@ function EditPost() {
             <label htmlFor="file-upload" className="custom-file-upload">
               +
              </label>
-              <input id="file-upload" type="file" onChange={(e) =>  setFile(e.target.files[0]) }/>
-            <input type="text" onChange={(e)=>setTitle(e.target.value )} placeholder="Title"/>
+              <input id="file-upload" type="file" onChange={(e) => setFile(e.target.files[0]) }/>
+            <input type="text"
+            value={title}
+            onChange={(e)=>setTitle(e.target.value )} placeholder="Title"/>
             {/* <select name="cars" id="cars">
             <option value="cooking">Cooking</option>
             <option value="lifestyle">Lifestyle</option>
@@ -80,7 +84,7 @@ function EditPost() {
 
             </select>
               */}
-             <textarea onChange={(e)=>setContent(e.target.value)} 
+             <textarea value={content} onChange={(e)=>setContent(e.target.value)} 
              style={{marginTop:'3px'}}/>
            
               <button className="post__btn" type="submit">Submit</button>

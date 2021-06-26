@@ -12,6 +12,10 @@
          let getCurrentPost = async () => 
            { 
             let post = await axios.get(`/posts/${id}`);
+            // console.log(post.data.title);
+            localStorage.setItem('title',post.data.title);
+            localStorage.setItem('content',post.data.content);
+
             setPost(post.data);
             // scroll to top
             setTimeout(()=> window.scrollTo(0, 0),100);

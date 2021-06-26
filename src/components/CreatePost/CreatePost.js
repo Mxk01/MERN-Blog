@@ -68,7 +68,8 @@ function CreatePost() {
               +
              </label>
               <input id="file-upload" type="file" onChange={(e) =>  setFile(e.target.files[0]) }/>
-            <input type="text" onChange={(e)=>setTitle(e.target.value )} placeholder="Title"/>
+            <input type="text" onChange={(e)=>
+               setTitle(e.target.value )} placeholder="Title"/>
             {/* <select name="cars" id="cars">
             <option value="cooking">Cooking</option>
             <option value="lifestyle">Lifestyle</option>
