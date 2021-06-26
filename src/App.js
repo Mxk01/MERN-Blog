@@ -6,6 +6,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import CreatePost from './components/CreatePost/CreatePost';
 import GetPost from './components/GetPost/GetPost';
+import EditPost from './components/EditPost/EditPost';
 
 import Post from './components/Post/Post';
  import FadeIn from 'react-fade-in';
@@ -48,6 +49,10 @@ import Post from './components/Post/Post';
 
              <Route path="/post/:id">
              <GetPost/> 
+            </Route>
+
+            <Route path="/edit/:id">
+             <EditPost/> 
             </Route>
         </Switch>
      
