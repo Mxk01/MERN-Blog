@@ -1,5 +1,5 @@
 import React from 'react'
-import  NavbarCSS from './Navbar.module.css';
+import   './Navbar.css';
 import {Link} from 'react-router-dom';
 import InfoIcon from '@material-ui/icons/Info';
 import HomeIcon from '@material-ui/icons/Home';
