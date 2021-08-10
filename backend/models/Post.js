@@ -5,13 +5,15 @@ let Schema = mongoose.Schema;
 let postSchema = new Schema(
     {
         // we need this to get post of a certain user 
-        userId:
+        postedBy:
         {
-            type: String,
+            type:Schema.Types.ObjectId,
+            ref:"User"
         },
         title: 
         {
-            type:String
+            type:String,
+            required:true
         }
         ,
         content:
@@ -36,6 +38,11 @@ let postSchema = new Schema(
         postPicture:
         {
             type: String
+        },
+        categories:
+        {
+            type:Array,
+            default:[]
         }
     }, { timestamps: true }
 )

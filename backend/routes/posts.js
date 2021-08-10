@@ -1,12 +1,16 @@
 let express = require('express');
 let router = express.Router();
 let Post = require('../models/Post');
-
+let loginMiddleware = require('../middleware/login')
 // Creating a post 
-router.post('/', async (req, res) => {
+
+router.post('/',loginMiddleware, async (req, res) => {
+    req.body.postedBy =  req.user;
+
+    console.log(req.user);
     let post = new Post(req.body);
     try {
-        await post.save();
+         await post.save();
 
         if (post) {
             res.status(200).json(post);
@@ -26,14 +30,11 @@ router.put('/:id', async (req, res) => {
     let post = await Post.findById(req.params.id)
     try {
         // checking if the user id that we entered matches with the one in the post 
-        if (req.body.userId === post.userId) {
+      
             // update the found post whenever we  change data inside req.body
             await post.updateOne({ $set: req.body })
             res.status(200).json(`Post has been updated.Check database`);
-        }
-        else {
-            res.status(200).json(`You can't update this post!`)
-        }
+    
     }
     catch (e) {
         res.status(500).json(e);
@@ -45,13 +46,10 @@ router.delete('/:id', async (req, res) => {
     let post = await Post.findById(req.params.id);
     try {
         // if userId from req.body matches userId of found post 
-        if (post.userId === req.body.userId) {
+      
             await post.deleteOne();
             res.status(200).json(`Post has been deleted`);
-        }
-        else {
-            res.status(403).json(`Can't delete this post `);
-        }
+       
     }
     catch (e) {
         res.status(500).json(e);
@@ -71,7 +69,7 @@ router.get('/:id', async (req, res) => {
 
 // Getting all posts 
 router.get('/', async (req, res) => {
-    let posts = await Post.find({});
+    let posts = await Post.find({}).populate("postedBy");
     try {
         res.status(200).json(posts);
     }
@@ -80,6 +78,17 @@ router.get('/', async (req, res) => {
     }
 })
 
+ 
+// Getting all  user posts 
+router.get('/:id/user', async (req, res) => {
+    let posts = await Post.find({postedBy:req.params.id});
+    try {
+        res.status(200).json(posts);
+    }
+    catch (e) {
+        res.status(404).json(`Posts not found`);
+    }
+})
 // router.put('/like/:id',async(req,res)=>{
 //     let post = await Post.findById(req.params.id);
 //     try {

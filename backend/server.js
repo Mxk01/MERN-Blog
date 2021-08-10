@@ -6,9 +6,18 @@ const multer = require('multer');
 const dotenv = require('dotenv');
 const authRoute = require('./routes/auth');
 const postsRoute = require('./routes/posts');
+const usersRoute = require('./routes/users');
+const session = require('express-session')
+
 const path = require('path');
 dotenv.config();
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 //  app.use("/images",express.static(path.join(__dirname,'/images')));
 
 app.use("/images", express.static(path.join(__dirname, "/images")));
@@ -25,6 +34,7 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:
 // ROUTES    
 app.use('/api/auth',authRoute);
 app.use('/api/posts',postsRoute);
+app.use('/api/users',usersRoute);
 
 
 const storage = multer.diskStorage({

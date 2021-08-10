@@ -10,6 +10,7 @@ let userSchema = new Schema(
           required:true,
           min:5
       },
+      
       password:
       {
           type:String,

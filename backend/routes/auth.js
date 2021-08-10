@@ -2,6 +2,10 @@ let express = require('express');
 let router = express.Router();
 let User = require('../models/User');
 let bcrypt = require('bcrypt');
+let jwt = require('jsonwebtoken');
+let dotenv = require('dotenv');
+dotenv.config()
+
 
 // REGISTER USER 
 router.post('/register',async(req,res)=>{
@@ -30,7 +34,8 @@ router.post('/register',async(req,res)=>{
 // LOGIN USER
 
 router.post('/login',async(req,res)=>{
-    let user = await User.findOne({email:req.body.email}); 
+    let user = await User.findOne({email:req.body.email});
+    let {_id,username,email} = user;  
     console.log(`User is : ${user} ` || 'no user');
     try {
         
@@ -41,8 +46,10 @@ router.post('/login',async(req,res)=>{
             let passwordsMatch = await bcrypt.compare(req.body.password,user.password);
              if(passwordsMatch)
             {
+               let token = jwt.sign({_id:user._id},process.env.JWT_SECRET)
+              
             // then if it does just send data back
-            res.status(200).json(user)
+            return res.json({token,user:{_id,username,email}});
             }
         }
         else 
